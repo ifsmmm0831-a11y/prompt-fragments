@@ -17,12 +17,14 @@
     padding: 10px;
     background: var(--SmartThemeBlurTintColor);
     border-radius: 5px;
+    gap: 10px;
 }
 
 /* Main toggle (원형, 체크 표시 없음) */
 .pf-main-toggle {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .pf-main-toggle input[type="checkbox"] {
@@ -45,6 +47,7 @@
 /* Add category button - in header */
 .pf-add-category {
     padding: 6px 16px;
+    white-space: nowrap;
 }
 
 /* Categories container */
@@ -66,6 +69,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: nowrap; /* 한 줄 유지 */
+    overflow-x: auto; /* 넘치면 스크롤 */
 }
 
 /* Collapse button */
@@ -133,6 +138,7 @@
     font-size: 0.85em !important;
     min-width: auto !important;
     height: 28px !important;
+    white-space: nowrap;
 }
 
 .pf-btn-danger {
@@ -164,7 +170,8 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    flex-wrap: wrap;
+    flex-wrap: nowrap; /* 한 줄 유지 */
+    overflow-x: auto; /* 넘치면 스크롤 */
     padding: 8px;
     background: var(--SmartThemeBlurTintColor);
     border-radius: 4px;
@@ -176,6 +183,7 @@
     display: flex;
     align-items: center;
     gap: 6px;
+    flex-shrink: 0; /* 크기 유지 */
 }
 
 .pf-select-group label {
@@ -190,10 +198,11 @@
 .pf-select {
     padding: 4px 8px;
     border-radius: 4px;
-    background: var(--SmartThemeBlurTintColor) !important; /* 통일된 배경색 */
+    background: var(--SmartThemeBlurTintColor) !important;
     color: var(--SmartThemeEmColor);
     border: 1px solid var(--SmartThemeBorderColor);
     font-size: 0.9em;
+    flex-shrink: 0;
 }
 
 .pf-position-mode {
@@ -223,6 +232,7 @@
 /* Add fragment button */
 .pf-add-fragment {
     padding: 6px 16px;
+    white-space: nowrap;
 }
 
 /* Fragments container */
@@ -244,6 +254,8 @@
     display: flex;
     align-items: center;
     gap: 8px;
+    flex-wrap: nowrap; /* 한 줄 유지 */
+    overflow-x: auto; /* 넘치면 스크롤 */
 }
 
 /* Fragment toggle (원형, 체크/텍스트 없음) */
@@ -273,7 +285,7 @@
 /* Fragment title */
 .pf-fragment-title {
     flex: 1;
-    min-width: 100px;
+    min-width: 80px; /* 모바일에서도 최소 크기 유지 */
     padding: 4px 8px;
     font-size: 0.9em;
 }
@@ -299,54 +311,6 @@
     transition: background-color 0.2s;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .pf-header {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 10px;
-    }
-    
-    .pf-add-category {
-        width: 100%;
-    }
-    
-    .pf-category-header {
-        flex-wrap: wrap;
-    }
-    
-    .pf-settings-row {
-        flex-direction: column;
-        align-items: stretch;
-    }
-    
-    .pf-select-group {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    .pf-select-group select,
-    .pf-select-group input {
-        flex: 1;
-    }
-    
-    .pf-fragment-header {
-        flex-wrap: wrap;
-    }
-    
-    .pf-fragment-title {
-        width: 100%;
-        min-width: 100%;
-        margin-bottom: 4px;
-    }
-    
-    .pf-btn-group {
-        margin-left: 0;
-        width: 100%;
-        justify-content: flex-end;
-    }
-}
-
 /* Improve spacing */
 .pf-category + .pf-category {
     margin-top: 12px;
@@ -354,4 +318,52 @@
 
 .pf-fragment + .pf-fragment {
     margin-top: 8px;
+}
+
+/* 
+  모바일에서도 PC와 동일한 레이아웃 유지
+  단, 내용이 넘칠 경우 가로 스크롤 허용
+*/
+@media (max-width: 768px) {
+    /* 기본 스타일 유지, 반응형 변경 없음 */
+    
+    /* 단, 컨테이너가 화면을 넘어가는 것 방지 */
+    #prompt_fragments_container {
+        overflow-x: hidden;
+    }
+    
+    /* 한 줄에 들어가지 않으면 가로 스크롤 */
+    .pf-category-header,
+    .pf-fragment-header,
+    .pf-settings-row {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch; /* iOS 부드러운 스크롤 */
+    }
+    
+    /* 스크롤바 스타일링 (선택) */
+    .pf-category-header::-webkit-scrollbar,
+    .pf-fragment-header::-webkit-scrollbar,
+    .pf-settings-row::-webkit-scrollbar {
+        height: 4px;
+    }
+    
+    .pf-category-header::-webkit-scrollbar-thumb,
+    .pf-fragment-header::-webkit-scrollbar-thumb,
+    .pf-settings-row::-webkit-scrollbar-thumb {
+        background: var(--SmartThemeBorderColor);
+        border-radius: 2px;
+    }
+}
+
+/* 매우 작은 화면 (320px 이하)에서도 기본 레이아웃 유지 */
+@media (max-width: 320px) {
+    .pf-category-name,
+    .pf-fragment-title {
+        min-width: 60px; /* 최소한의 크기만 보장 */
+    }
+    
+    .pf-btn-small {
+        padding: 3px 6px !important;
+        font-size: 0.8em !important;
+    }
 }
