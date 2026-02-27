@@ -1,0 +1,357 @@
+/* Prompt Fragments Extension Styles */
+
+#prompt_fragments_settings {
+    margin: 10px 0;
+}
+
+#prompt_fragments_container {
+    padding: 10px;
+}
+
+/* Header styles - 토글과 버튼을 한 줄에 */
+.pf-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: var(--SmartThemeBlurTintColor);
+    border-radius: 5px;
+}
+
+/* Main toggle (원형, 체크 표시 없음) */
+.pf-main-toggle {
+    display: flex;
+    align-items: center;
+}
+
+.pf-main-toggle input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--SmartThemeBorderColor);
+    background: var(--SmartThemeBodyColor);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pf-main-toggle input[type="checkbox"]:checked {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+/* Add category button - in header */
+.pf-add-category {
+    padding: 6px 16px;
+}
+
+/* Categories container */
+.pf-categories {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Category styles - 통일된 배경색 */
+.pf-category {
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 5px;
+    padding: 10px;
+    background: var(--SmartThemeBlurTintColor);
+}
+
+.pf-category-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Collapse button */
+.pf-collapse-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 4px;
+    color: var(--SmartThemeEmColor);
+    font-size: 14px;
+    min-width: 24px;
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+}
+
+.pf-collapse-btn:hover {
+    background: var(--SmartThemeBodyColor);
+    border-radius: 3px;
+}
+
+/* Category toggle (원형, 체크/텍스트 없음) */
+.pf-category-toggle {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.pf-category-toggle input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 2px solid var(--SmartThemeBorderColor);
+    background: var(--SmartThemeBodyColor);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pf-category-toggle input[type="checkbox"]:checked {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+.pf-category-name {
+    flex: 1;
+    font-weight: bold;
+    font-size: 1em;
+    min-width: 100px;
+    padding: 4px 8px;
+}
+
+/* Button group - 한 줄로 */
+.pf-btn-group {
+    display: flex;
+    gap: 4px;
+    margin-left: auto;
+    flex-shrink: 0;
+}
+
+.pf-btn-small {
+    padding: 4px 10px !important;
+    font-size: 0.85em !important;
+    min-width: auto !important;
+    height: 28px !important;
+}
+
+.pf-btn-danger {
+    background: #dc3545 !important;
+    color: white !important;
+}
+
+.pf-btn-danger:hover {
+    background: #c82333 !important;
+}
+
+.pf-btn-edit {
+    background: #007bff !important;
+    color: white !important;
+}
+
+.pf-btn-edit:hover {
+    background: #0056b3 !important;
+}
+
+/* Category content (collapsible) */
+.pf-category-content {
+    margin-top: 10px;
+    transition: opacity 0.2s ease-in-out;
+}
+
+/* Settings row - 한 줄로, 배경색 통일 */
+.pf-settings-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 8px;
+    background: var(--SmartThemeBlurTintColor);
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Select groups */
+.pf-select-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.pf-select-group label {
+    margin: 0;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+/* Unified select and input styles - 배경색 통일 */
+.pf-select-group select,
+.pf-select-group input[type="number"],
+.pf-select {
+    padding: 4px 8px;
+    border-radius: 4px;
+    background: var(--SmartThemeBlurTintColor) !important; /* 통일된 배경색 */
+    color: var(--SmartThemeEmColor);
+    border: 1px solid var(--SmartThemeBorderColor);
+    font-size: 0.9em;
+}
+
+.pf-position-mode {
+    min-width: 100px;
+}
+
+.pf-category-position {
+    min-width: 90px;
+}
+
+.pf-category-role {
+    min-width: 90px;
+}
+
+.pf-category-depth {
+    width: 70px;
+    background: var(--SmartThemeBlurTintColor) !important;
+}
+
+/* Fragment button container - right aligned */
+.pf-fragment-btn-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
+}
+
+/* Add fragment button */
+.pf-add-fragment {
+    padding: 6px 16px;
+}
+
+/* Fragments container */
+.pf-fragments {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Fragment styles - 카테고리와 동일한 배경색 */
+.pf-fragment {
+    border: 1px solid var(--SmartThemeBorderColor);
+    border-radius: 4px;
+    padding: 8px;
+    background: var(--SmartThemeBlurTintColor);
+}
+
+.pf-fragment-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Fragment toggle (원형, 체크/텍스트 없음) */
+.pf-fragment-toggle {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.pf-fragment-toggle input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 2px solid var(--SmartThemeBorderColor);
+    background: var(--SmartThemeBodyColor);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pf-fragment-toggle input[type="checkbox"]:checked {
+    background: #28a745;
+    border-color: #28a745;
+}
+
+/* Fragment title */
+.pf-fragment-title {
+    flex: 1;
+    min-width: 100px;
+    padding: 4px 8px;
+    font-size: 0.9em;
+}
+
+/* Content textarea */
+.pf-fragment-content {
+    width: 100%;
+    min-height: 80px;
+    resize: vertical;
+    font-family: monospace;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+    font-size: 0.9em;
+}
+
+/* Button common styles */
+.pf-category button,
+.pf-fragment button {
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .pf-header {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    
+    .pf-add-category {
+        width: 100%;
+    }
+    
+    .pf-category-header {
+        flex-wrap: wrap;
+    }
+    
+    .pf-settings-row {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .pf-select-group {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .pf-select-group select,
+    .pf-select-group input {
+        flex: 1;
+    }
+    
+    .pf-fragment-header {
+        flex-wrap: wrap;
+    }
+    
+    .pf-fragment-title {
+        width: 100%;
+        min-width: 100%;
+        margin-bottom: 4px;
+    }
+    
+    .pf-btn-group {
+        margin-left: 0;
+        width: 100%;
+        justify-content: flex-end;
+    }
+}
+
+/* Improve spacing */
+.pf-category + .pf-category {
+    margin-top: 12px;
+}
+
+.pf-fragment + .pf-fragment {
+    margin-top: 8px;
+}

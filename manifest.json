@@ -1,0 +1,14 @@
+{
+    "display_name": "조각 프롬",
+    "loading_order": 10,
+    "requires": [],
+    "optional": [],
+    "dependencies": [],
+    "js": "index.js",
+    "css": "style.css",
+    "author": "SillyTavern Community",
+    "version": "1.0.0",
+    "homePage": "https://github.com/",
+    "auto_update": false,
+    "description": "Manage and toggle prompt fragments to combine with your main prompts"
+}
